@@ -1,5 +1,4 @@
-$gs = Get-NetIpConfiguration;
-Write-Host $gs;
+Get-NetIpConfiguration;
 $netInterface= Read-Host -Prompt "Choose Interface Index";
 $netConfRaw = Get-NetIpConfiguration -InterfaceIndex $netInterface;
 $name = $netConfRaw.InterfaceAlias;
