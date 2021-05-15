@@ -1,0 +1,13 @@
+{
+  "Ip": "192.168.100.63",
+  "InterfaceName": "vEthernet (DEV-TEST)",
+  "SubnetMask": 24,
+  "DefaultGateway": "192.168.100.1",
+  "DnsServers": {
+    "ServerAddresses": [
+      "192.168.100.1"
+    ]
+  },
+  "Domain": null,
+  "ComputerName": "DESKTOP-AABUUR6"
+}
