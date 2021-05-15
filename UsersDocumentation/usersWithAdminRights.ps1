@@ -8,4 +8,4 @@ $netConfDta = [PSCustomObject]@{
    Users = $users.Name;
    Groups = $groups.Name;
 }
-$netConfDta | ConvertTo-Json;
+$netConfDta | ConvertTo-Json -Depth 100 | Out-File "dummy/users_conf.json";

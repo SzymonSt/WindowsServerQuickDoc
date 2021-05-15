@@ -9,7 +9,7 @@ $compName = $netConfRaw.ComputerName;
 $dnsSrv = $netConfRaw.DNSServer;
 $dnsSrv = $dnsSrv | Where-Object -Property AddressFamily -eq 2;
 $dnsSrvAddresses = $dnsSrv | Select-Object -Property ServerAddresses;
-$domain = (Get-ADDomain -Current LocalComputer).Forest;
+$domain = (Get-ADDomain -Current LocalComputer).Forest | -ErrorAction SilentlyContinue;
 $netConfDta = [PSCustomObject]@{
     Ip = $ip;
     InterfaceName= $name;
@@ -20,4 +20,4 @@ $netConfDta = [PSCustomObject]@{
     ComputerName= $compName;
 }
 
-$netConfDta | ConvertTo-Json
+$netConfDta | ConvertTo-Json -Depth 100 | Out-File "dummy/net_conf.json"
