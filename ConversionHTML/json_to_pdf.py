@@ -1,12 +1,16 @@
 import json
-file = open("C:\\Users\\lenovo\\Documents\\GitHub\\WindowsServerQuickDoc\\UsersDocumentation\\dummy\\users_conf.json")
+file = input("Provide input file path: ")
+file = open(file)
+fileOut = input("Provide output file path(if file is existing will be appended): ")
 data = json.load(file)
-htmlStrings = []
 htmlBeggining = '<head><style>table, th, td {border: 1px solid black;}</style></head><table>'
 htmlEnding = '</table>'
 for dta in data:
     tmpStr  = '<tr><td>'+dta+'</td><td>'+str(data[dta])+'</td></tr>'
     htmlBeggining += tmpStr
 htmlBeggining+=htmlEnding
-f = open("test.html","w")
-f.write(htmlBeggining)
+if(fileOut.split(".")[1]=="html"):
+    f = open(fileOut,"a")
+    f.write(htmlBeggining)
+else:
+    print("Wrong file extension")
